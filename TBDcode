@@ -1,0 +1,37 @@
+import pickle
+import base64
+
+# Create a people object with matching attributes
+target = people('bobbyboy', 'male', '33')  # Assuming these are the correct values for name, sex, and age
+
+# Serialize the object
+pickled_data = pickle.dumps(target)
+
+# Base64 encode the serialized data
+encoded_data = base64.b64encode(pickled_data).decode()
+
+print(encoded_data)
+
+
+2nd version
+import pickle
+import base64
+
+# Define the people class (replicating the class from the target application)
+class people:
+    def __init__(self, name, sex, age):
+        self.name = name
+        self.sex = sex
+        self.age = age
+
+    def __repr__(self):
+        return f'people(name={self.name!r}, sex={self.sex!r}, age={self.age!r})'
+
+# Now create a people object with guessed or known attributes
+target = people('bobbyboy', 'male', '33')  # Replace with appropriate values if known
+
+# Serialize the object
+pickled_data = pickle.dumps(target)
+
+# Base64 encode the serialized data
+encoded_data = base64.b64encode(pick
